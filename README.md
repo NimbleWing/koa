@@ -1,7 +1,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/NimbleWing/koa/CI?style=plastic)
 ![GitHub](https://img.shields.io/github/license/NimbleWing/koa?style=plastic)
 ![npm (scoped)](https://img.shields.io/npm/v/@nwing/koa)
-# KOA
+# Koa
 koa wrapper
 
 # Installation
