@@ -17,10 +17,10 @@ async function init($port, $option = {}) {
   const option = $option;
   Assert.ok(option.router, 'the params router is needed!');
   Assert.ok(option.router instanceof Router, 'the router need to be instance of koa-router');
-  if (!option.static) {
-    option.static = '.';
+  if (!option.staticPath) {
+    option.staticPath = '.';
   }
-  const allMiddlewares = Compose([
+  const middleware = Compose([
     Morgan('combined'),
     Helmet(),
     Conditional(),
@@ -28,10 +28,10 @@ async function init($port, $option = {}) {
     Respond(),
     BodyParser({ enableTypes: ['json', 'form'] }),
     Cors(),
-    Static(option.static),
+    Static(option.staticPath),
     option.router.routes(),
   ]);
-  app.use(allMiddlewares);
+  app.use(middleware);
   const server = await app.listen($port);
   return server;
 }
