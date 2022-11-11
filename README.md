@@ -17,8 +17,8 @@ import Router from 'koa-router';
 (async ()=>{
   const port = 8080;
   const router = new Router();
-  const static = '.';
-  await Koa(port,{router,static})
+  const staticPath = '.';
+  await Koa(port,{router,staticPath})
 })
 ```
 # License
