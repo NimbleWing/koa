@@ -10,9 +10,9 @@ import Cors from '@koa/cors';
 import Static from 'koa-static';
 import Conditional from 'koa-conditional-get';
 import Etag from 'koa-etag';
+import responseHandler from './middleware/responseHandler';
 
 const app = new Koa();
-
 async function init($port, $option = {}) {
   const option = $option;
   Assert.ok(option.router, 'the params router is needed!');
@@ -21,6 +21,7 @@ async function init($port, $option = {}) {
     option.staticPath = '.';
   }
   const middleware = Compose([
+    responseHandler({ contentType: 'application/json' }),
     Morgan('combined'),
     Helmet(),
     Conditional(),
