@@ -19,7 +19,7 @@ import Router from 'koa-router';
   const router = new Router();
   const staticPath = '.';
   await Koa(port,{router,staticPath})
-})
+})();
 ```
 # License
 
